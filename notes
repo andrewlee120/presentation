@@ -1,0 +1,22 @@
+JIT Notes 
+
+What is JIT - It is the act of placing numeric assembly language commands, called opcodes, into pieces of normal source code
+-These numeric opcodes are written in assembly, and are typically placed into char arrays
+-The opcodes are hexadecimal representations of the assembly mnemonics 
+-The char arrays are copied into memory and a function pointer to the start of the array serves as the function call 
+-Calling the pointer will execute all of the commands in the char array, in order
+
+Uses of JIT - It allows for specialization of code and complete control over what the computer is doing
+-The compiler often optimizes code you write, causing unforeseen consequences
+-These optimizations are sometimes to ensure portability, which can sacrifice stability. Adding JIT code allows you to sacrifice unnecessary portability for increased stability
+-Occassionaly the optimization makes the program run slower. JIT code allows you to ensure your code runs as lean as possible
+-Some functionality the operating system offers is difficult, or impossible, to access with normal code. JIT code provides opportunities for easier workarounds for these blocks
+-WIth the increased control, JIT code adds more security to your program. It allows you complete control over how the program is run, ensuring no one will access the memory of your program without your permission. It also prevents reverse engineering of your code, as your can obfuscate it much easier than a normal packing program
+
+Problems with JIT - It can be dangerous to use without proper knowledge, it takes much longer to write anything useful, and it can be difficult to document properly
+-With the power to control everything your program does comes danger. If you call the wrong subroutine, you may end up wiping you, or your user’s, hard drive instead of defragging it
+JIT code is not human-readable the way normal high-level languages such as C++ and Python are. It is completely composed of hexadecimal char arrays, and there are many different commands
+-Again, choosing the wrong command could have drastic consequences
+-Because the char arrays are filled with hexadecimal numbers, accurately documenting and explaining what your code does can be difficult. There are many references online and in print of every assembly opcode for every operating system that includes the hexadecimal representation, but writing out the mnemonics is not enough to help anyone else understand your code
+-It is necessary to explain the overhead ideas of the assembly mnemonics, listing what series of commands are going to do
+-Documenting both what the hexadecimal opcodes represent and what they are trying to do makes things much more difficult and confusing to document
